@@ -1,0 +1,47 @@
+@use "../../../styles/colors.scss" as colors;
+
+mat-expansion-panel {
+  width: 90%;
+  margin: 2rem auto;
+  border: 1px solid colors.$gray;
+  box-shadow: none !important;
+}
+
+mat-expansion-panel-header {
+  padding: 2rem 1.5rem !important;
+}
+
+mat-panel-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: colors.$primary;
+}
+
+form {
+  margin: 1.5rem auto;
+}
+
+.form-fields {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+
+  > * {
+    width: 30%;
+    min-width: 300px;
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.mat-datepicker-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

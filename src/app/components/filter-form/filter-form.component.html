@@ -1,0 +1,103 @@
+<mat-expansion-panel
+  (opened)="panelOpenState = true"
+  (closed)="panelOpenState = false"
+>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Filter Employees
+    </mat-panel-title>
+    <mat-panel-description>
+
+
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  
+  <form [formGroup]="filterForm">
+    <div class="form-fields">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input
+          formControlName="name"
+          type="text"
+          matInput
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Salary</mat-label>
+        <input
+          formControlName="salary"
+          type="number"
+          matInput
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Departments</mat-label>
+        <mat-select formControlName="department">
+          <mat-option
+            *ngFor="let department of departmentsOptions"
+            [value]="department"
+          >{{department}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Experience</mat-label>
+        <mat-select
+          formControlName="experience"
+          multiple
+        >
+          <mat-select-trigger>
+            {{filterForm.controls['experience'].value[0] || ''}}
+            <span
+              *ngIf="(filterForm.controls['experience'].value.length || 0) > 1"
+              class="example-additional-selection"
+            >
+              (+{{(filterForm.controls['experience'].value.length || 0) - 1}}
+              {{filterForm.controls['experience'].value.length === 2 ? 'other' : 'others'}})
+            </span>
+          </mat-select-trigger>
+          <mat-option
+            *ngFor="let exp of experienceOptions"
+            [value]="exp"
+          >{{exp}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>
+          Employment date
+        </mat-label>
+        <input
+          formControlName="employmentDate"
+          matInput
+          [matDatepicker]="picker"
+        >
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="form-actions">
+      <button
+        mat-flat-button
+        color="primary"
+        (click)="filterEmployees()"
+      >
+        Filter
+      </button>
+
+      <button
+        mat-flat-button
+        color="primary"
+        (click)="clearFilters()"
+      >
+        Clear All
+      </button>
+    </div>
+  </form>
+</mat-expansion-panel>

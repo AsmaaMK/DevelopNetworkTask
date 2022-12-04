@@ -1,0 +1,44 @@
+@use "../../../styles/colors.scss" as colors;
+
+.container {
+  position: relative;
+  min-height: 100vh;
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f1f1f1;
+
+  .mat-icon {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  color: colors.$primary;
+}
+
+.card {
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: colors.$light;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1.5rem;
+
+  .title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: colors.$primary;
+  }
+
+  .description {
+    color: colors.$dark;
+  }
+}

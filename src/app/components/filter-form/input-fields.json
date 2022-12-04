@@ -1,0 +1,23 @@
+{
+  "departments": [
+    "Jewelery",
+    "Grocery",
+    "Beauty",
+    "Industrial",
+    "Computers",
+    "Home",
+    "Tools",
+    "Toys",
+    "Kids",
+    "Baby",
+    "Health",
+    "Games",
+    "Movies",
+    "Shoes"
+  ],
+  "experience": [
+    "Less than a year",
+    "From 1-3 years",
+    "3 years or above"
+  ]
+}

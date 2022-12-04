@@ -1,0 +1,122 @@
+<app-spinner *ngIf="!dataLoaded"></app-spinner>
+
+<div class="no-data" *ngIf="dataLoaded && !data.length">
+  <p>No data found.</p>
+</div>
+
+<div
+  [ngClass]="{hidden: !data.length}"
+  class="mat-elevation-z8 employees-table"
+>
+  <table
+    mat-table
+    [dataSource]="data"
+    id="table"
+    class="full-width-table"
+    aria-label="Elements"
+  >
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+      >Id</th>
+      <td
+        mat-cell
+        *matCellDef="let row"
+      >
+        <span class="cell-title">ID: </span>
+        <span class="cell-body">{{row.id}}</span>
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+      >Name</th>
+      <td
+        mat-cell
+        *matCellDef="let row"
+      >
+        <span class="cell-title">Name: </span>
+        <span class="cell-body">{{row.name}}</span>
+      </td>
+    </ng-container>
+
+    <!-- Salary Column -->
+    <ng-container matColumnDef="salary">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+      >Salary</th>
+      <td
+        mat-cell
+        *matCellDef="let row"
+      >
+        <span class="cell-title">Salary: </span>
+        <span class="cell-body">{{row.salary | currency}}</span>
+
+      </td>
+    </ng-container>
+
+    <!-- Department Column -->
+    <ng-container matColumnDef="department">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+      >Department</th>
+      <td
+        mat-cell
+        *matCellDef="let row"
+      >
+        <span class="cell-title">Department: </span>
+        <span class="cell-body">{{row.department}}</span>
+
+      </td>
+    </ng-container>
+
+    <!-- Experience Column -->
+    <ng-container matColumnDef="experience">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+      >Experience</th>
+      <td
+        mat-cell
+        *matCellDef="let row"
+      >
+        <span class="cell-title">Experience: </span>
+        <span class="cell-body">{{row.experience}}</span>
+      </td>
+    </ng-container>
+
+    <!-- Employment Date Column -->
+    <ng-container matColumnDef="employmentDate">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+      >Employment Date</th>
+      <td
+        mat-cell
+        *matCellDef="let row"
+      >
+        <span class="cell-title">Employment Date: </span>
+        <span class="cell-body">{{row.employmentDate | date:'shortDate'}}</span>
+      </td>
+    </ng-container>
+
+    <tr
+      mat-header-row
+      *matHeaderRowDef="displayedColumns"
+      id="header-row"
+      background-color="primary"
+    ></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns;"
+      routerLink="./{{row.id}}"
+    ></tr>
+  </table>
+</div>

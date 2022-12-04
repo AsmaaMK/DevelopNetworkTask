@@ -1,0 +1,30 @@
+<div class="container">
+  <a routerLink="..">
+    <mat-icon color="primary">arrow_back</mat-icon>
+  </a>
+
+  <h2>Employee Details</h2>
+
+  <div class="card">
+    <p>
+      <span class="title">Name: </span>
+      <span class="description">{{data.name}}</span>
+    </p>
+    <p>
+      <span class="title">Salary: </span>
+      <span class="description">{{data.salary | currency}}</span>
+    </p>
+    <p>
+      <span class="title">Department: </span>
+      <span class="description">{{data.department}}</span>
+    </p>
+    <p>
+      <span class="title">Experience: </span>
+      <span class="description">{{data.experience}}</span>
+    </p>
+    <p>
+      <span class="title">Employment Date: </span>
+      <span class="description">{{data.employmentDate | date: 'shortDate'}}</span>
+    </p>
+  </div>
+</div>

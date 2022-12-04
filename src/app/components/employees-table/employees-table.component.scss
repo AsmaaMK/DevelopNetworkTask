@@ -1,0 +1,122 @@
+@use "../../../styles/colors" as colors;
+
+.hidden {
+  display: none;
+}
+
+.no-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: gray;
+}
+
+.employees-table {
+  box-shadow: none;
+  margin: 2rem auto;
+  width: 90%;
+  border: 1px solid colors.$gray;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.full-width-table {
+  width: 100%;
+}
+
+.mat-header-row {
+  font-weight: bold;
+  background-color: colors.$secondary;
+}
+
+.mat-header-cell {
+  font-size: 1.2rem;
+}
+
+.mat-cell {
+  font-size: 1.1rem;
+}
+
+.mat-row {
+  cursor: pointer;
+
+  td.mat-cell {
+    color: colors.$dark;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover {
+    td.mat-cell {
+      color: colors.$primary;
+    }
+  }
+}
+
+.mat-row:nth-child(even) {
+  background-color: colors.$secondary;
+}
+
+.mat-row:nth-child(odd) {
+  background-color: colors.$light;
+}
+
+.cell-title {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .mat-cell {
+    display: block;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .mat-row {
+    width: 100%;
+  }
+
+  table {
+    position: relative;
+  }
+
+  .mat-header-row {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  tr.mat-header-row {
+    height: auto;
+  }
+
+  th.mat-header-cell {
+    border: none;
+    padding: 0.5rem;
+  }
+
+  td.mat-cell:first-of-type {
+    padding-left: 1rem;
+  }
+
+  td.mat-cell:last-of-type {
+    padding-right: 1rem;
+  }
+
+  th.mat-header-cell:first-of-type,
+  th.mat-header-cell:last-of-type {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .cell-title {
+    display: inline;
+  }
+}
